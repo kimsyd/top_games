@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useRef, useEffect} from "react";
+import {Runtime, Inspector} from "@observablehq/runtime";
+import notebook from "@sydney-kim-ws/exploration-of-top-selling-video-games-released-each-year";
 
-function App() {
+function ExplorationOfTopSellingVideoGamesReleasedEachYear() {
+  const testgraphRef = useRef();
+
+  useEffect(() => {
+    const runtime = new Runtime();
+    runtime.module(notebook, name => {
+      if (name === "testgraph") return new Inspector(testgraphRef.current);
+    });
+    return () => runtime.dispose();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div ref={testgraphRef} />
+      <p>Credit: <a href="https://observablehq.com/@sydney-kim-ws/exploration-of-top-selling-video-games-released-each-year@242">Exploration of top-selling video games released each year by Sydney Kim&#039;s Workspace</a></p>
+    </>
   );
 }
 
-export default App;
+export default ExplorationOfTopSellingVideoGamesReleasedEachYear;
