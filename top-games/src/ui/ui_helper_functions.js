@@ -1,4 +1,6 @@
 import Plotly from 'plotly.js/lib/core';
+import 'top-games/src/data/Functions.js';
+
 function retrieveData(elem) {
   var trace = {
     x: [elem.TotalSales],
