@@ -1,3 +1,5 @@
+import 'top-games/src/data/raw_data/video_game_sales_titles.csv';
+
 /*
 function filterByValues(array, count)
 parameters: - array: array/spreadsheet to filter w/
@@ -5,7 +7,7 @@ parameters: - array: array/spreadsheet to filter w/
 returns array w/ count number of entries
 ref: https://stackoverflow.com/questions/56168771/how-to-limit-for-10-results-the-array-filter
 */
-function filterByValues(array, count) {
+export function filterByValues(array, count) {
   let filtered_values = array.filter(function(item) {
     if (this.count < count){
       this.count++;
@@ -23,7 +25,7 @@ paramerers: - spreadsheet: spreadsheet to pull games from
             - count: number of games to return
 returns an array w/ count elements of the first count games in the spreadsheets w/ requested genre (each of our spreadsheets already ranked by sale #s)
 */
-function filterByGenre(spreadsheet, genre, count) {
+export function filterByGenre(spreadsheet, genre, count) {
   let genreFiltered = spreadsheet.filter((game) => game.Genre == genre);
   return filterByValues(genreFiltered, count);
 }
@@ -34,19 +36,19 @@ parameters: - spreadsheet: spreadsheet to pull games form
             - year: year to filter gamess with
 returns all games for the designated year
 */
-function filterByYear (spreadsheet, year) {
+export function filterByYear (spreadsheet, year) {
   let yearResults = spreadsheet.filter((game) => getYear(game) == year);
   return yearResults;
 }
 
 
-function getYear(game){
+export function getYear(game){
   let exampleyear = game.ReleaseDate;
   return new Date(exampleyear).getFullYear();
 }
 
 
-function filterBySystem(system, values) {
+export function filterBySystem(system, values) {
     let systemResults = videoGameSalesTitles.filter(game => game.Console == system);
     return filterByValues(systemResults, values);
   }
