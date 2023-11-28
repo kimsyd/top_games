@@ -1,6 +1,7 @@
 import React, {useRef, useEffect} from "react";
 import {Runtime, Inspector} from "@observablehq/runtime";
 import notebook from "@sydney-kim-ws/exploration-of-top-selling-video-games-released-each-year";
+import FilterFunctions from "./Functions.js"
 
 function ExplorationOfTopSellingVideoGamesReleasedEachYear() {
   const testgraphRef = useRef();
