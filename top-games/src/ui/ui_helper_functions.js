@@ -1,5 +1,8 @@
 import Plotly from 'plotly.js/lib/core';
 import 'top-games/src/data/Functions.js';
+import {filterByGenre, filterByYear, filterByValues} from '../data/Functions';
+
+export {retrieveData, createGenreView, createYearView};
 
 function retrieveData(elem) {
   var trace = {
