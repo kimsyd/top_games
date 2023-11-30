@@ -1,0 +1,44 @@
+body {
+  font-family: 'Inconsolata', monospace;
+}
+
+.nav.nav-tabs .nav-link {
+  background-color: #D7E3EB;
+  color: #282c34;
+  font-weight: bold;
+}
+
+.nav.nav-tabs .nav-link.active {
+  background-color: white;
+  color: #282c34;
+  font-weight: bold;
+}
+
+.filter-button {
+  background-color: #2A628F;
+  color: white;
+  border: none;
+  --bs-btn-active-bg: #13293D;
+}
+
+.filter-button:checked {
+  background-color: #2A628F;
+  color: white;
+  border: none;
+  --bs-btn-active-bg: #13293D;
+}
+
+.filter-button:hover {
+  background-color: #2A628F;
+  color: white;
+  border: none;
+  --bs-btn-active-bg: #13293D;
+}
+
+.filter-button:disabled {
+  background-color: #2A628F;
+  color: white;
+  border: none;
+  --bs-btn-active-bg: #13293D;
+  opacity: 100%;
+}
