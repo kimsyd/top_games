@@ -44,11 +44,14 @@ Papa.parse('https://raw.githubusercontent.com/kimsyd/top_games/main/top-games/sr
 
 const Plot = createPlotlyComponent(Plotly);
 
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+await sleep(3000);
+
 const PlotlyComponent = () => {
   useEffect(() => {
     // Your Plotly configuration and data
     const data = [{
-      x: [readSalesAllPlat[0].totalSales, readSalesAllPlat[1].totalSales, readSalesAllPlat[3].totalSales, readSalesAllPlat[4].totalSales],
+      x: [readSalesAllPlat[0]["Total Sales"], readSalesAllPlat[1]["Total Sales"], readSalesAllPlat[3]["Total Sales"], readSalesAllPlat[4]["Total Sales"]],
       y: [10, 11, 12, 13],
       type: 'scatter'
     }];
