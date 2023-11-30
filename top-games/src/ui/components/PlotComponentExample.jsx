@@ -22,7 +22,7 @@ const PlotlyComponent = () => {
   }, []); // Empty dependency array means this effect runs once on mount
 
   return (
-    <div id="plotContainer" style={{ width: "100%" }}>
+    <div id="plotContainer">
       {/* The HTML element with the id 'myPlot' where the Plotly plot will be rendered */}
       <div id="myPlot"></div>
     </div>
