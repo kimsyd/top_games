@@ -1,12 +1,12 @@
 import Plotly from 'plotly.js/lib/core';
-import 'top-games/src/data/Functions.js';
-import {filterByGenre, filterByYear, filterByValues} from '../data/Functions';
+//import 'top-games/src/data/Functions.js';
+//import {filterByGenre, filterByYear, filterByValues} from '../data/Functions';
 
-export {retrieveData, createGenreView, createYearView};
+export {retrieveData};
 
 function retrieveData(elem) {
   var trace = {
-    x: [elem.TotalSales],
+    x: [elem['Total Sales']],
     y: [elem.Title],
     orientation: 'h',
     type: 'bar',
@@ -17,6 +17,7 @@ function retrieveData(elem) {
   return trace;
 } // function to create trace from each elem in top 10 array
 
+/*
 function createGenreView(genre) {
   const data = filterByGenre(videoGameSalesAllPlatforms, genre, 10);
   const traces = data.map((each) => retrieveData(each));
@@ -49,7 +50,7 @@ function createGenreView(genre) {
   }
   return Plotly.newPlot(traces, layout);;
 } // function to create view filtered by genre, takes String of genre as param
-
+/*
 function createYearView(year) {
   const data = filterByValues(filterByYear(videoGameSalesAllPlatforms, year), 10);
   const traces = data.map((each) => retrieveData(each));
@@ -85,3 +86,4 @@ function createYearView(year) {
   Plotly.newPlot(div, traces, layout);
   return div;
 } // function to create view filtered by year, takes 4-digit year as param
+ */

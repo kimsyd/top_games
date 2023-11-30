@@ -1,5 +1,3 @@
-import 'top-games/src/data/raw_data/video_game_sales_titles.csv';
-
 export {filterByGenre, filterBySystem, filterByValues, filterByYear, getYear};
 
 /*
@@ -50,7 +48,7 @@ function getYear(game){
 }
 
 
-function filterBySystem(system, values) {
-    let systemResults = videoGameSalesTitles.filter(game => game.Console == system);
+function filterBySystem(spreadsheet, system, values) {
+    let systemResults = spreadsheet.filter(game => game.Console == system);
     return filterByValues(systemResults, values);
   }
