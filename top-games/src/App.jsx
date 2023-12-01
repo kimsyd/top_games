@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Container, Navbar, Tabs, Tab } from "react-bootstrap";
+import { Row, Col, Container, Tabs, Tab } from "react-bootstrap";
 import AllView from './ui/components/AllView';
 import InfoTab from './ui/components/InfoTab';
 
