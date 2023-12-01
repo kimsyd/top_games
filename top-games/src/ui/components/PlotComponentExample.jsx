@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Plotly from 'plotly.js/dist/plotly';
-import { filterByGenre, filterByValues, filterByYear, filterBySystem } from '../../data/Functions'
+import { filterByGenre, filterByValues, filterByYear, filterBySystem, filterByPublisher } from '../../data/Functions'
 
 import Papa from 'papaparse';
 import { retrieveData } from '../ui_helper_functions';
@@ -56,7 +56,9 @@ function createYearView(year) {
   activeTraces = activeData.map((each) => retrieveData(each));
 }*/
 
-const PlotlyComponent = ({ genre, console }) => {
+console.log(readSalesAllPlat[0]);
+
+const PlotlyComponent = ({ genre, console, publisher }) => {
   let activeData;
   if ((genre === 'GENRE') && (console === 'CONSOLE')) {
     activeData = filterByValues(readSalesAllPlat, 10)
@@ -66,6 +68,9 @@ const PlotlyComponent = ({ genre, console }) => {
   }
   else if (console !== 'CONSOLE') {
     activeData = filterBySystem(readSalesAllPlat, console, 10)
+  }
+  else if (publisher !== 'PUBLISHER'){
+    activeData = filterByPublisher(readSalesAllPlat, publisher, 10)
   }
   else {
     activeData = filterBySystem(filterByGenre(readSalesAllPlat, genre, 10), console, 10)

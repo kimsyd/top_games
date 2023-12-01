@@ -1,4 +1,4 @@
-export {filterByGenre, filterBySystem, filterByValues, filterByYear, getYear};
+export {filterByGenre, filterBySystem, filterByValues, filterByYear, getYear, filterByPublisher};
 
 /*
 function filterByValues(array, count)
@@ -54,4 +54,9 @@ function getYear(game){
 function filterBySystem(spreadsheet, system, values) {
     let systemResults = spreadsheet.filter(game => game.Console === system);
     return filterByValues(systemResults, values);
-  }
+}
+
+function filterByPublisher(spreadsheet, publisher, values) {
+  let publisherGames = spreadsheet.filter(game => game.Publisher === publisher);
+  return filterByValues(publisherGames, values);
+}
