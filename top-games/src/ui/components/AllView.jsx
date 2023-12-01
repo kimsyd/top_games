@@ -1,20 +1,20 @@
 import React, {useState} from 'react';
 import { Container, Col, Row, Dropdown, Button, ButtonGroup } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import PlotlyComponent from './PlotComponentExample';
+import { PlotlyComponent } from './PlotComponentExample';
 
 const AllView = () => {
   const [selectGenre, setSelectGenre] = useState('GENRE');
-  const [selectPlatform, setSelectPlatform] = useState('PLATFORM');
+  const [selectConsole, setSelectConsole] = useState('CONSOLE');
 
   const handleGenre = (eventKey, event) => {
     // Update the dropdown title when an option is selected
     setSelectGenre(eventKey);
   };
 
-  const handlePlatform = (eventKey, event) => {
+  const handleConsole = (eventKey, event) => {
     // Update the dropdown title when an option is selected
-    setSelectPlatform(eventKey);
+    setSelectConsole(eventKey);
   };
 
   return (
@@ -32,26 +32,50 @@ const AllView = () => {
           </Col>
           <Col className="col-sm d-flex justify-content-end" xs = {2}>
             <Dropdown onSelect={handleGenre} as={ButtonGroup}>
-              <Button className="filter-button" style={{ width: '90px' }} disabled>
+              <Button className="filter-button" style={{ width: '110px' }} disabled>
                 {selectGenre}
               </Button>
               <Dropdown.Toggle split className="filter-button" />
               <Dropdown.Menu align="end">
-                <Dropdown.Item eventKey="Fantasy">Fantasy</Dropdown.Item>
+                <Dropdown.Item eventKey="Action">Action</Dropdown.Item>
+                <Dropdown.Item eventKey="Action-Adventure">Action-Adventure</Dropdown.Item>
+                <Dropdown.Item eventKey="Adventure">Adventure</Dropdown.Item>
+                <Dropdown.Item eventKey="Fighting">Fighting</Dropdown.Item>
+                <Dropdown.Item eventKey="Misc">Misc</Dropdown.Item>
+                <Dropdown.Item eventKey="Platform">Platform</Dropdown.Item>
                 <Dropdown.Item eventKey="Puzzle">Puzzle</Dropdown.Item>
-                <Dropdown.Item eventKey="Platformer">Platformer</Dropdown.Item>
+                <Dropdown.Item eventKey="Shooter">Shooter</Dropdown.Item>
+                <Dropdown.Item eventKey="Simulation">Simulation</Dropdown.Item>
+                <Dropdown.Item eventKey="Sports">Sports</Dropdown.Item>
+                <Dropdown.Item eventKey="Strategy">Strategy</Dropdown.Item>
+                <Dropdown.Item eventKey="Racing">Racing</Dropdown.Item>
+                <Dropdown.Item eventKey="Role-Playing">Role-Playing</Dropdown.Item>
+                <Dropdown.Item eventKey="GENRE">Reset</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </Col>
           <Col className="col-sm d-flex justify-content-end" xs = {2}>
-            <Dropdown onSelect={handlePlatform} as={ButtonGroup}>
-              <Button className="filter-button" style={{ width: '90px' }} disabled>
-                {selectPlatform}
+            <Dropdown onSelect={handleConsole} as={ButtonGroup}>
+              <Button className="filter-button" style={{ width: '110px' }} disabled>
+                {selectConsole}
               </Button>
               <Dropdown.Toggle split className="filter-button" />
               <Dropdown.Menu align="end">
-                <Dropdown.Item eventKey="Console">Console</Dropdown.Item>
+                <Dropdown.Item eventKey="DS">DS</Dropdown.Item>
+                <Dropdown.Item eventKey="GB">GB</Dropdown.Item>
+                <Dropdown.Item eventKey="GBA">GBA</Dropdown.Item>
                 <Dropdown.Item eventKey="PC">PC</Dropdown.Item>
+                <Dropdown.Item eventKey="PS">PS</Dropdown.Item>
+                <Dropdown.Item eventKey="PS">PSN</Dropdown.Item>
+                <Dropdown.Item eventKey="PSP">PSP</Dropdown.Item>
+                <Dropdown.Item eventKey="PS2">PS2</Dropdown.Item>
+                <Dropdown.Item eventKey="PS3">PS3</Dropdown.Item>
+                <Dropdown.Item eventKey="PS4">PS4</Dropdown.Item>
+                <Dropdown.Item eventKey="SNES">SNES</Dropdown.Item>
+                <Dropdown.Item eventKey="Wii">Wii</Dropdown.Item>
+                <Dropdown.Item eventKey="X360">X360</Dropdown.Item>
+                <Dropdown.Item eventKey="3DS">3DS</Dropdown.Item>
+                <Dropdown.Item eventKey="CONSOLE">Reset</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </Col>
@@ -59,7 +83,7 @@ const AllView = () => {
       </Row>
       <Row>
         <Col>
-          <PlotlyComponent />
+          <PlotlyComponent genre={selectGenre} system={selectConsole} />
           <div id="samplePlot"></div>
         </Col>
       </Row>

@@ -7,8 +7,11 @@ parameters: - array: array/spreadsheet to filter w/
 returns array w/ count number of entries
 ref: https://stackoverflow.com/questions/56168771/how-to-limit-for-10-results-the-array-filter
 */
+
+let filtered_values = [];
+
 function filterByValues(array, count) {
-  let filtered_values = array.filter(function(item) {
+  filtered_values = array.filter(function(item) {
     if (this.count < count){
       this.count++;
       return true;
@@ -26,7 +29,7 @@ paramerers: - spreadsheet: spreadsheet to pull games from
 returns an array w/ count elements of the first count games in the spreadsheets w/ requested genre (each of our spreadsheets already ranked by sale #s)
 */
 function filterByGenre(spreadsheet, genre, count) {
-  let genreFiltered = spreadsheet.filter((game) => game.Genre == genre);
+  let genreFiltered = spreadsheet.filter((game) => game.Genre === genre);
   return filterByValues(genreFiltered, count);
 }
 
@@ -37,7 +40,7 @@ parameters: - spreadsheet: spreadsheet to pull games form
 returns all games for the designated year
 */
 function filterByYear (spreadsheet, year) {
-  let yearResults = spreadsheet.filter((game) => getYear(game) == year);
+  let yearResults = spreadsheet.filter((game) => getYear(game) === year);
   return yearResults;
 }
 
@@ -49,6 +52,6 @@ function getYear(game){
 
 
 function filterBySystem(spreadsheet, system, values) {
-    let systemResults = spreadsheet.filter(game => game.Console == system);
+    let systemResults = spreadsheet.filter(game => game.Console === system);
     return filterByValues(systemResults, values);
   }
