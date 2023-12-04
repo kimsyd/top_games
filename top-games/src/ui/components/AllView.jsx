@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { Container, Col, Row, Dropdown, Button, ButtonGroup } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { PlotlyComponent } from './PlotComponentExample';
-import Slider from '@mui/material/Slider';
+import Slider from '@mui/material/Slider/Slider';
 import Box from '@mui/material/Box';
 
 const AllView = () => {
