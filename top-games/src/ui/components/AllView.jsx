@@ -1,15 +1,14 @@
 import React, {useState} from 'react';
 import { Container, Col, Row, Dropdown, Button, ButtonGroup } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { PlotlyComponent } from './PlotComponentExample';
-import Slider from '@mui/material/Slider';
+import { PlotlyComponent } from './AllViewPlot';
+import Slider from '@mui/material/Slider/Slider';
 import Box from '@mui/material/Box';
 
 const AllView = () => {
   const [selectGenre, setSelectGenre] = useState('GENRE');
   const [selectPublisher, setSelectPublisher] = useState('PUBLISHER');
   const [setYear, setSelectYear] = useState(2000);
-
 
   const handleGenre = (eventKey, event) => {
     // Update the dropdown title when an option is selected
@@ -34,11 +33,11 @@ const AllView = () => {
     <Container>
       <Row>
         <Col className="d-flex justify-content-end">
-          <Col className="d-flex justify-content-start" xs = {3} style={{ paddingTop: "7px" }}>
-            Showing rankings for
+          <Col className="d-flex" xs = {3} style={{ paddingTop: "7px" }}>
+            Showing rankings for:
           </Col>
-          <Col className="d-flex justify-content-start" xs = {2} style={{ paddingTop: "7px" }}>
-            YEAR
+          <Col className="col-sm d-flex justify-content-start" xs = {2}>
+            <Button className="filter-button" style={{ width: '110px' }} disabled>{setYear}</Button>
           </Col>
           <Col className="d-flex justify-content-end" xs = {3} style={{ paddingTop: "7px" }}>
             Show games filtered by:
@@ -79,15 +78,12 @@ const AllView = () => {
                 <Dropdown.Item eventKey="Eletronic Arts">Electronic Arts</Dropdown.Item>
                 <Dropdown.Item eventKey="Ubisoft">Ubisoft</Dropdown.Item>
                 <Dropdown.Item eventKey="Sega">Sega</Dropdown.Item>
-                <Dropdown.Item eventKey="PS">PSN</Dropdown.Item> // change the rest of these to other publishers
-                <Dropdown.Item eventKey="PSP">PSP</Dropdown.Item> // refer to the original spreadsheet, observable has a way to
-                <Dropdown.Item eventKey="PS2">PS2</Dropdown.Item> // see which are the most common entries on each column, so
-                <Dropdown.Item eventKey="PS3">PS3</Dropdown.Item> // can put in the most common entries on the publishers column
-                <Dropdown.Item eventKey="PS4">PS4</Dropdown.Item>
-                <Dropdown.Item eventKey="SNES">SNES</Dropdown.Item>
-                <Dropdown.Item eventKey="Wii">Wii</Dropdown.Item>
-                <Dropdown.Item eventKey="X360">X360</Dropdown.Item>
-                <Dropdown.Item eventKey="3DS">3DS</Dropdown.Item>
+                <Dropdown.Item eventKey="Koei Tecmo">Koei Tecmo</Dropdown.Item>
+                <Dropdown.Item eventKey="Strategic Simulations">Strategic Simulations</Dropdown.Item>
+                <Dropdown.Item eventKey="Activision">Activision</Dropdown.Item>
+                <Dropdown.Item eventKey="THQ">THQ</Dropdown.Item>
+                <Dropdown.Item eventKey="EA Sports">EA Sports</Dropdown.Item>
+                <Dropdown.Item eventKey="Eidos Interactive">Eidos Interactive</Dropdown.Item>
                 <Dropdown.Item eventKey="PUBLISHER">Reset</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>

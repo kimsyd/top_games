@@ -2,6 +2,7 @@ import React from "react";
 import { Row, Col, Container, Tabs, Tab } from "react-bootstrap";
 import AllView from './ui/components/AllView';
 import InfoTab from './ui/components/InfoTab';
+import MultiView from './ui/components/MultiView';
 
 const App = () => (
   <Container>
@@ -15,8 +16,8 @@ const App = () => (
             <Tab eventKey="default" title="See All Titles">
               <AllView />
             </Tab>
-            <Tab eventKey="platform" title="See By Category">
-              Maybe we'll implement this
+            <Tab eventKey="platform" title="See By Genre">
+              <MultiView />
             </Tab>
           </Tabs>
         </Col>

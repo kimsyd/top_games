@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Plotly from 'plotly.js/dist/plotly';
-import { filterByGenre, filterByValues, filterByYear, filterBySystem, filterByPublisher } from '../../data/Functions'
+import { filterByGenre, filterByValues, filterByYear, filterByPublisher, genresGrouped, salesByGenre } from '../../data/Functions'
 
 import Papa from 'papaparse';
 import { retrieveData } from '../ui_helper_functions';
@@ -23,9 +23,7 @@ Papa.parse('https://raw.githubusercontent.com/kimsyd/top_games/main/top-games/sr
     comments: false,
     step: undefined,
     complete: function(results,file){
-      console.log("Parsing complete:", results, file);
       readSalesAllPlat = results.data;
-      console.log(readSalesAllPlat[0]);
     },
     error: undefined,
     download: true,
@@ -56,32 +54,28 @@ function createYearView(year) {
   activeTraces = activeData.map((each) => retrieveData(each));
 }*/
 
-console.log(readSalesAllPlat[0]);
-
 const PlotlyComponent = ({ genre, publisher,  year }) => {
-  console.log(year);
   let activeData;
   let yearData = filterByYear(readSalesAllPlat, year);
-  console.log(yearData);
   if ((genre === 'GENRE') && (publisher === 'PUBLISHER')) {
     activeData = filterByValues(yearData, 10);
   }
-  else if (genre !== 'GENRE') {
+  else if ((genre !== 'GENRE') && (publisher === 'PUBLISHER')) {
     activeData = filterByGenre(yearData, genre, 10);
   }
-  else if (publisher !== 'PUBLISHER'){
+  else if ((publisher !== 'PUBLISHER') && (genre === 'GENRE')){
     activeData = filterByPublisher(yearData, publisher, 10);
   }
   else {
     //activeData = filterBySystem(filterByGenre(readSalesAllPlat, genre, 10), console, 10)
     activeData = filterByPublisher(filterByGenre(yearData, genre, 30), publisher, 10);
   }
-      let activeTraces = activeData.map((each) => retrieveData(each));
+      let activeTraces = activeData.map((each, index) => retrieveData(each, index));
 
       useEffect(() => {
 
         let layout = {
-          title: "Top 10 Video Games",
+          title: `Top 10 Video Game Titles for ${year}`,
           font: {
             family: 'Inconsolata',
             size: 12,
@@ -113,7 +107,6 @@ const PlotlyComponent = ({ genre, publisher,  year }) => {
 
       return (
         <div id="plotContainer">
-          {/* The HTML element with the id 'myPlot' where the Plotly plot will be rendered */}
           <div id="myPlot"></div>
         </div>
       );
