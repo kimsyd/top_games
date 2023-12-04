@@ -73,17 +73,17 @@ const AllView = () => {
               </Button>
               <Dropdown.Toggle split className="filter-button" />
               <Dropdown.Menu align="end">
-                <Dropdown.Item eventKey="Nintendo">Nintendo</Dropdown.Item>
-                <Dropdown.Item eventKey="Capcom">Capcom</Dropdown.Item>
-                <Dropdown.Item eventKey="Eletronic Arts">Electronic Arts</Dropdown.Item>
-                <Dropdown.Item eventKey="Ubisoft">Ubisoft</Dropdown.Item>
-                <Dropdown.Item eventKey="Sega">Sega</Dropdown.Item>
-                <Dropdown.Item eventKey="Koei Tecmo">Koei Tecmo</Dropdown.Item>
-                <Dropdown.Item eventKey="Strategic Simulations">Strategic Simulations</Dropdown.Item>
                 <Dropdown.Item eventKey="Activision">Activision</Dropdown.Item>
-                <Dropdown.Item eventKey="THQ">THQ</Dropdown.Item>
+                <Dropdown.Item eventKey="Capcom">Capcom</Dropdown.Item>
                 <Dropdown.Item eventKey="EA Sports">EA Sports</Dropdown.Item>
                 <Dropdown.Item eventKey="Eidos Interactive">Eidos Interactive</Dropdown.Item>
+                <Dropdown.Item eventKey="Electronic Arts">Electronic Arts</Dropdown.Item>
+                <Dropdown.Item eventKey="Koei Tecmo">Koei Tecmo</Dropdown.Item>
+                <Dropdown.Item eventKey="Nintendo">Nintendo</Dropdown.Item>
+                <Dropdown.Item eventKey="Sega">Sega</Dropdown.Item>
+                <Dropdown.Item eventKey="Strategic Simulations">Strategic Simulations</Dropdown.Item>
+                <Dropdown.Item eventKey="THQ">THQ</Dropdown.Item>
+                <Dropdown.Item eventKey="Ubisoft">Ubisoft</Dropdown.Item>
                 <Dropdown.Item eventKey="PUBLISHER">Reset</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
