@@ -21,6 +21,7 @@ const AllView = () => {
     setSelectPublisher(eventKey);
   };
 
+  // helper function to get the year value from the slider
   const handleYear = (event, newValue) => {
     setSelectYear(newValue);
   };
@@ -74,14 +75,14 @@ const AllView = () => {
               <Dropdown.Toggle split className="filter-button" />
               <Dropdown.Menu align="end">
                 <Dropdown.Item eventKey="Nintendo">Nintendo</Dropdown.Item>
-                <Dropdown.Item eventKey="GB">GB</Dropdown.Item>
-                <Dropdown.Item eventKey="GBA">GBA</Dropdown.Item>
-                <Dropdown.Item eventKey="PC">PC</Dropdown.Item>
-                <Dropdown.Item eventKey="PS">PS</Dropdown.Item>
-                <Dropdown.Item eventKey="PS">PSN</Dropdown.Item>
-                <Dropdown.Item eventKey="PSP">PSP</Dropdown.Item>
-                <Dropdown.Item eventKey="PS2">PS2</Dropdown.Item>
-                <Dropdown.Item eventKey="PS3">PS3</Dropdown.Item>
+                <Dropdown.Item eventKey="Capcom">Capcom</Dropdown.Item>
+                <Dropdown.Item eventKey="Eletronic Arts">Electronic Arts</Dropdown.Item>
+                <Dropdown.Item eventKey="Ubisoft">Ubisoft</Dropdown.Item>
+                <Dropdown.Item eventKey="Sega">Sega</Dropdown.Item>
+                <Dropdown.Item eventKey="PS">PSN</Dropdown.Item> // change the rest of these to other publishers
+                <Dropdown.Item eventKey="PSP">PSP</Dropdown.Item> // refer to the original spreadsheet, observable has a way to
+                <Dropdown.Item eventKey="PS2">PS2</Dropdown.Item> // see which are the most common entries on each column, so
+                <Dropdown.Item eventKey="PS3">PS3</Dropdown.Item> // can put in the most common entries on the publishers column
                 <Dropdown.Item eventKey="PS4">PS4</Dropdown.Item>
                 <Dropdown.Item eventKey="SNES">SNES</Dropdown.Item>
                 <Dropdown.Item eventKey="Wii">Wii</Dropdown.Item>

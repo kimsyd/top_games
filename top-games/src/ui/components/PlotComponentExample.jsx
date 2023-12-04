@@ -69,15 +69,12 @@ const PlotlyComponent = ({ genre, publisher,  year }) => {
   else if (genre !== 'GENRE') {
     activeData = filterByGenre(yearData, genre, 10);
   }
-  //else if (console !== 'CONSOLE') {
-  //  activeData = filterBySystem(readSalesAllPlat, console, 10)
-  //}
   else if (publisher !== 'PUBLISHER'){
     activeData = filterByPublisher(yearData, publisher, 10);
   }
   else {
     //activeData = filterBySystem(filterByGenre(readSalesAllPlat, genre, 10), console, 10)
-    activeData = filterByPublisher(filterByGenre(yearData, genre, 10), publisher, 10);
+    activeData = filterByPublisher(filterByGenre(yearData, genre, 30), publisher, 10);
   }
       let activeTraces = activeData.map((each) => retrieveData(each));
 
