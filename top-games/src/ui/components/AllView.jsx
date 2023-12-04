@@ -34,15 +34,7 @@ const AllView = () => {
     return `year: ${value}`;
   }
 
-  // switch (selectPublisher) {
-  //   case "Capcom":
-  //     setMinYear(1989);
-  //     break;
-  //   default:
-  //     setMinYear(1979);
-  //     setMaxYear(2023);
-  // }
-
+  // change the min and max years depending on the publisher name
   switch (selectPublisher) {
     case "Capcom":
       minYear = 1989;
@@ -78,6 +70,22 @@ const AllView = () => {
     case "Ubisoft":
       minYear = 1993;
       maxYear = 2021;
+      break;
+    default:
+      minYear = 1979;
+      maxYear = 2023;
+  }
+
+  // change the min and max years depending on the genre
+  switch (selectGenre) {
+    case "Action":
+      minYear = 1995;
+      break;
+    case "Fighting":
+      minYear = 1990;
+      break;
+    case "Racing":
+      minYear = 1985;
       break;
     default:
       minYear = 1979;
