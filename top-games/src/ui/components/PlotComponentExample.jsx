@@ -58,22 +58,23 @@ function createYearView(year) {
 
 console.log(readSalesAllPlat[0]);
 
-const PlotlyComponent = ({ genre, console, publisher }) => {
+const PlotlyComponent = ({ genre, publisher,  year }) => {
+  console.log(year);
   let activeData;
-  if ((genre === 'GENRE') && (console === 'CONSOLE')) {
-    activeData = filterByValues(readSalesAllPlat, 10)
+  let yearData = filterByYear(readSalesAllPlat, year);
+  console.log(yearData);
+  if ((genre === 'GENRE') && (publisher === 'PUBLISHER')) {
+    activeData = filterByValues(yearData, 10);
   }
   else if (genre !== 'GENRE') {
-    activeData = filterByGenre(readSalesAllPlat, genre, 10)
-  }
-  else if (console !== 'CONSOLE') {
-    activeData = filterBySystem(readSalesAllPlat, console, 10)
+    activeData = filterByGenre(yearData, genre, 10);
   }
   else if (publisher !== 'PUBLISHER'){
-    activeData = filterByPublisher(readSalesAllPlat, publisher, 10)
+    activeData = filterByPublisher(yearData, publisher, 10);
   }
   else {
-    activeData = filterBySystem(filterByGenre(readSalesAllPlat, genre, 10), console, 10)
+    //activeData = filterBySystem(filterByGenre(readSalesAllPlat, genre, 10), console, 10)
+    activeData = filterByPublisher(filterByGenre(yearData, genre, 30), publisher, 10);
   }
       let activeTraces = activeData.map((each) => retrieveData(each));
 

@@ -2,20 +2,33 @@ import React, {useState} from 'react';
 import { Container, Col, Row, Dropdown, Button, ButtonGroup } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { PlotlyComponent } from './PlotComponentExample';
+import Slider from '@mui/material/Slider';
+import Box from '@mui/material/Box';
 
 const AllView = () => {
   const [selectGenre, setSelectGenre] = useState('GENRE');
-  const [selectConsole, setSelectConsole] = useState('CONSOLE');
+  const [selectPublisher, setSelectPublisher] = useState('PUBLISHER');
+  const [setYear, setSelectYear] = useState(2000);
+
 
   const handleGenre = (eventKey, event) => {
     // Update the dropdown title when an option is selected
     setSelectGenre(eventKey);
   };
 
-  const handleConsole = (eventKey, event) => {
+  const handlePublisher = (eventKey, event) => {
     // Update the dropdown title when an option is selected
-    setSelectConsole(eventKey);
+    setSelectPublisher(eventKey);
   };
+
+  // helper function to get the year value from the slider
+  const handleYear = (event, newValue) => {
+    setSelectYear(newValue);
+  };
+
+  function yearValue(value: year){
+    return `year: ${value}`;
+  }
 
   return (
     <Container>
@@ -55,27 +68,27 @@ const AllView = () => {
             </Dropdown>
           </Col>
           <Col className="col-sm d-flex justify-content-end" xs = {2}>
-            <Dropdown onSelect={handleConsole} as={ButtonGroup}>
+            <Dropdown onSelect={handlePublisher} as={ButtonGroup}>
               <Button className="filter-button" style={{ width: '110px' }} disabled>
-                {selectConsole}
+                {selectPublisher}
               </Button>
               <Dropdown.Toggle split className="filter-button" />
               <Dropdown.Menu align="end">
-                <Dropdown.Item eventKey="DS">DS</Dropdown.Item>
-                <Dropdown.Item eventKey="GB">GB</Dropdown.Item>
-                <Dropdown.Item eventKey="GBA">GBA</Dropdown.Item>
-                <Dropdown.Item eventKey="PC">PC</Dropdown.Item>
-                <Dropdown.Item eventKey="PS">PS</Dropdown.Item>
-                <Dropdown.Item eventKey="PS">PSN</Dropdown.Item>
-                <Dropdown.Item eventKey="PSP">PSP</Dropdown.Item>
-                <Dropdown.Item eventKey="PS2">PS2</Dropdown.Item>
-                <Dropdown.Item eventKey="PS3">PS3</Dropdown.Item>
+                <Dropdown.Item eventKey="Nintendo">Nintendo</Dropdown.Item>
+                <Dropdown.Item eventKey="Capcom">Capcom</Dropdown.Item>
+                <Dropdown.Item eventKey="Eletronic Arts">Electronic Arts</Dropdown.Item>
+                <Dropdown.Item eventKey="Ubisoft">Ubisoft</Dropdown.Item>
+                <Dropdown.Item eventKey="Sega">Sega</Dropdown.Item>
+                <Dropdown.Item eventKey="PS">PSN</Dropdown.Item> // change the rest of these to other publishers
+                <Dropdown.Item eventKey="PSP">PSP</Dropdown.Item> // refer to the original spreadsheet, observable has a way to
+                <Dropdown.Item eventKey="PS2">PS2</Dropdown.Item> // see which are the most common entries on each column, so
+                <Dropdown.Item eventKey="PS3">PS3</Dropdown.Item> // can put in the most common entries on the publishers column
                 <Dropdown.Item eventKey="PS4">PS4</Dropdown.Item>
                 <Dropdown.Item eventKey="SNES">SNES</Dropdown.Item>
                 <Dropdown.Item eventKey="Wii">Wii</Dropdown.Item>
                 <Dropdown.Item eventKey="X360">X360</Dropdown.Item>
                 <Dropdown.Item eventKey="3DS">3DS</Dropdown.Item>
-                <Dropdown.Item eventKey="CONSOLE">Reset</Dropdown.Item>
+                <Dropdown.Item eventKey="PUBLISHER">Reset</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </Col>
@@ -83,8 +96,21 @@ const AllView = () => {
       </Row>
       <Row>
         <Col>
-          <PlotlyComponent genre={selectGenre} system={selectConsole} />
+          <PlotlyComponent genre={selectGenre} publisher={selectPublisher} year={setYear} />
           <div id="samplePlot"></div>
+
+          <Box sx={{width: 700}}>
+            <Slider
+              aria-label="Year"
+              defaultValue={2000}
+              valueLabelDisplay="auto"
+              step={1}
+              marks
+              min={1979}
+              max={2023}
+              onChange={handleYear}
+            />
+          </Box>
         </Col>
       </Row>
     </Container>
