@@ -34,7 +34,7 @@ const MultiView = () => {
           <MultiComponent year={setYear} />
           <div id="multiPlot"></div>
 
-          <Box sx={{width: 700}}>
+          <Box sx={{width: 700, paddingTop: 2, paddingLeft: 15}}>
             <Slider
               aria-label="Year"
               defaultValue={2000}
