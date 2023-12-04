@@ -1,6 +1,6 @@
 /* global DOM */
 import Plotly from 'plotly.js/lib/core';
-import {filterByGenre, filterByYear, filterByValues } from '../data/Functions';
+import { filterByYear, genresGrouped, salesByGenre } from '../data/Functions';
 import Papa from 'papaparse';
 
 // testing this papaparse stuff
@@ -51,12 +51,28 @@ function retrieveData(elem, index) {
     type: 'bar',
     legendgroup: elem.Title,
     name: elem.Title,
-    hoverinfo: 'none', // temporary disable
+    hoverinfo: 'x', // temporary disable
     marker: {
       color: colorPalette[index % colorPalette.length]
     }
   };
   return trace;
-} // function to create trace from each elem in top 10 array
+}
 
-export { retrieveData }
+function retrieveGroupedData(elem, index) {
+  var trace = {
+    x: [elem[1]],
+    y: [elem[0]],
+    orientation: 'h',
+    type: 'bar',
+    legendgroup: elem[0],
+    name: 'x',
+    hoverinfo: elem[1], // temporary disable
+    marker: {
+      color: colorPalette[index % colorPalette.length]
+    }
+  };
+  return trace;
+}
+
+export { retrieveData, retrieveGroupedData }

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Container, Col, Row, Dropdown, Button, ButtonGroup } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { PlotlyComponent } from './PlotComponentExample';
+import { PlotlyComponent } from './AllViewPlot';
 import Slider from '@mui/material/Slider/Slider';
 import Box from '@mui/material/Box';
 
@@ -9,7 +9,6 @@ const AllView = () => {
   const [selectGenre, setSelectGenre] = useState('GENRE');
   const [selectPublisher, setSelectPublisher] = useState('PUBLISHER');
   const [setYear, setSelectYear] = useState(2000);
-
 
   const handleGenre = (eventKey, event) => {
     // Update the dropdown title when an option is selected
