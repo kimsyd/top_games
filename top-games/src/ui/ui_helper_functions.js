@@ -41,7 +41,9 @@ Papa.parse('https://raw.githubusercontent.com/kimsyd/top_games/main/top-games/sr
     skipFirstNLines: 0
   });
 
-function retrieveData(elem) {
+const colorPalette = ['#074378', '#053152', '#035d73', '#074f86', '#074473', '#2d7e9d', '#327bd7', '#076bb7', '#4f89b6', '#0c7bb3'];
+
+function retrieveData(elem, index) {
   var trace = {
     x: [elem['Total Sales']],
     y: [elem.Title],
@@ -50,6 +52,9 @@ function retrieveData(elem) {
     legendgroup: elem.Title,
     name: elem.Title,
     hoverinfo: 'none', // temporary disable
+    marker: {
+      color: colorPalette[index % colorPalette.length]
+    }
   };
   return trace;
 } // function to create trace from each elem in top 10 array

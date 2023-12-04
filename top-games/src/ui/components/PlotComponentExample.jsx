@@ -76,7 +76,7 @@ const PlotlyComponent = ({ genre, publisher,  year }) => {
     //activeData = filterBySystem(filterByGenre(readSalesAllPlat, genre, 10), console, 10)
     activeData = filterByPublisher(filterByGenre(yearData, genre, 30), publisher, 10);
   }
-      let activeTraces = activeData.map((each) => retrieveData(each));
+      let activeTraces = activeData.map((each, index) => retrieveData(each, index));
 
       useEffect(() => {
 
