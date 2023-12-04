@@ -63,17 +63,17 @@ const PlotlyComponent = ({ genre, publisher,  year }) => {
   let activeData;
   let yearData = filterByYear(readSalesAllPlat, year);
   console.log(yearData);
-  if ((genre === 'GENRE') && (console === 'CONSOLE')) {
-    activeData = filterByValues(yearData, 10)
+  if ((genre === 'GENRE') && (publisher === 'PUBLISHER')) {
+    activeData = filterByValues(yearData, 10);
   }
   else if (genre !== 'GENRE') {
-    activeData = filterByGenre(yearData, genre, 10)
+    activeData = filterByGenre(yearData, genre, 10);
   }
   //else if (console !== 'CONSOLE') {
   //  activeData = filterBySystem(readSalesAllPlat, console, 10)
   //}
   else if (publisher !== 'PUBLISHER'){
-    activeData = filterByPublisher(yearData, publisher, 10)
+    activeData = filterByPublisher(yearData, publisher, 10);
   }
   else {
     //activeData = filterBySystem(filterByGenre(readSalesAllPlat, genre, 10), console, 10)
