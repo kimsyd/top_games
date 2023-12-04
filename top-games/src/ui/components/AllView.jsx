@@ -95,7 +95,7 @@ const AllView = () => {
           <PlotlyComponent genre={selectGenre} publisher={selectPublisher} year={setYear} />
           <div id="samplePlot"></div>
 
-          <Box sx={{width: 700}}>
+          <Box sx={{width: 700, paddingTop: 2, paddingLeft: 15}}>
             <Slider
               aria-label="Year"
               defaultValue={2000}
