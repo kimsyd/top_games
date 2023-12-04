@@ -1,4 +1,4 @@
-export {filterByGenre, filterBySystem, filterByValues, filterByYear, getYear, filterByPublisher};
+export {filterByGenre, filterBySystem, filterByValues, filterByYear, getYear, filterByPublisher, genresGrouped, salesByGenre };
 
 /*
 function filterByValues(array, count)
@@ -59,4 +59,26 @@ function filterBySystem(spreadsheet, system, values) {
 function filterByPublisher(spreadsheet, publisher, values) {
   let publisherGames = spreadsheet.filter(game => game.Publisher === publisher);
   return filterByValues(publisherGames, values);
+}
+
+function genresGrouped(spreadsheet) {
+  let genres = Object.entries(spreadsheet.reduce((allGenres, game) => {
+    const genreValue = game['Genre'];
+
+    // Create an array for the key if it doesn't exist
+    if (!allGenres[genreValue]) {
+      allGenres[genreValue] = [];
+    }
+
+    // Push the item into the array for the key
+    allGenres[genreValue].push(game);
+
+    return allGenres;
+  }, {}));
+  return genres;
+}
+
+function salesByGenre(eachGenre) {
+  eachGenre[1] = eachGenre[1].reduce((sum, curr) => sum + curr["Total Sales"], 0);
+  return eachGenre;
 }

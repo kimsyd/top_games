@@ -1,6 +1,6 @@
 /* global DOM */
 import Plotly from 'plotly.js/lib/core';
-import {filterByGenre, filterByYear, filterByValues } from '../data/Functions';
+import { filterByYear, genresGrouped, salesByGenre } from '../data/Functions';
 import Papa from 'papaparse';
 
 // testing this papaparse stuff
@@ -41,7 +41,9 @@ Papa.parse('https://raw.githubusercontent.com/kimsyd/top_games/main/top-games/sr
     skipFirstNLines: 0
   });
 
-function retrieveData(elem) {
+const colorPalette = ['#074378', '#053152', '#035d73', '#074f86', '#074473', '#2d7e9d', '#327bd7', '#076bb7', '#4f89b6', '#0c7bb3'];
+
+function retrieveData(elem, index) {
   var trace = {
     x: [elem['Total Sales']],
     y: [elem.Title],
@@ -49,9 +51,28 @@ function retrieveData(elem) {
     type: 'bar',
     legendgroup: elem.Title,
     name: elem.Title,
-    hoverinfo: 'none', // temporary disable
+    hoverinfo: 'x', // temporary disable
+    marker: {
+      color: colorPalette[index % colorPalette.length]
+    }
   };
   return trace;
-} // function to create trace from each elem in top 10 array
+}
 
-export { retrieveData }
+function retrieveGroupedData(elem, index) {
+  var trace = {
+    x: [elem[1]],
+    y: [elem[0]],
+    orientation: 'h',
+    type: 'bar',
+    legendgroup: elem[0],
+    name: 'x',
+    hoverinfo: elem[1], // temporary disable
+    marker: {
+      color: colorPalette[index % colorPalette.length]
+    }
+  };
+  return trace;
+}
+
+export { retrieveData, retrieveGroupedData }
