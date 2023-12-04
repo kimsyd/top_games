@@ -60,10 +60,10 @@ const PlotlyComponent = ({ genre, publisher,  year }) => {
   if ((genre === 'GENRE') && (publisher === 'PUBLISHER')) {
     activeData = filterByValues(yearData, 10);
   }
-  else if (genre !== 'GENRE') {
+  else if ((genre !== 'GENRE') && (publisher === 'PUBLISHER')) {
     activeData = filterByGenre(yearData, genre, 10);
   }
-  else if (publisher !== 'PUBLISHER'){
+  else if ((publisher !== 'PUBLISHER') && (genre === 'GENRE')){
     activeData = filterByPublisher(yearData, publisher, 10);
   }
   else {
@@ -107,7 +107,6 @@ const PlotlyComponent = ({ genre, publisher,  year }) => {
 
       return (
         <div id="plotContainer">
-          {/* The HTML element with the id 'myPlot' where the Plotly plot will be rendered */}
           <div id="myPlot"></div>
         </div>
       );

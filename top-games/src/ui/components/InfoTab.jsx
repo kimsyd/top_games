@@ -6,7 +6,7 @@ const InfoTab = () => (
     <Col style={{ padding: "15px", color: "white" }}>
       <h3>Data Information</h3>
       <p>
-        This dataset contains information on video game sales organized by year of release. The scope of this dataset includes titles with over 100,000 copies sold globally. In our visualization, we choose to break down this ranking over each year of release, showcasing the top 10 titles by global sales for each year of release. We include options to further sort the data based on genre and platform for deeper analysis.
+        This dataset contains information on video game sales organized by year of release. The scope of this dataset includes titles with over 10,000 copies sold globally. In our visualization, we choose to break down this ranking over each year of release, showcasing the top 10 titles by global sales for each year of release. We include options to further sort the data based on genre and platform for deeper analysis.
       </p>
       <p>
         <a href="https://www.kaggle.com/datasets/gregorut/videogamesales/data" target="_blank" rel="noopener noreferrer" style={{color: "white"}}>Source</a>
