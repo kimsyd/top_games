@@ -46,8 +46,8 @@ function filterByYear (spreadsheet, year) {
 
 
 function getYear(game){
-  let exampleyear = game.ReleaseDate;
-  return new Date(exampleyear).getFullYear();
+  let exampleYear = game['Release Date'];
+  return new Date(exampleYear).getFullYear();
 }
 
 
