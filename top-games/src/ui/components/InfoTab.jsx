@@ -16,7 +16,7 @@ const InfoTab = () => (
         This visualization was created as a collaborative project for ICS 484 Data Visualization.
       </p>
       <h5><a href="https://kimsyd.github.io/" target="_blank" rel="noopener noreferrer" style={{color: "white"}}>Sydney Kim</a></h5>
-      <h5>Jordan Le</h5>
+      <h5><a href="https://github.com/YJRenK9" target="_blank" rel="noopener noreferrer" style={{color: "white"}}>Jordan Le</a></h5>
       <h5><a href="https://msumaylo.github.io/" target="_blank" rel="noopener noreferrer" style={{color: "white"}}>Michael Sumaylo</a></h5>
     </Col>
   </Container>
