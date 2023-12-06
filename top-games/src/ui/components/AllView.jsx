@@ -9,9 +9,7 @@ const AllView = () => {
   const [selectGenre, setSelectGenre] = useState('GENRE');
   const [selectPublisher, setSelectPublisher] = useState('PUBLISHER');
   const [setYear, setSelectYear] = useState(2000);
-  
-  //const [minYear, setMinYear] = useState(1979);
-  //const [maxYear, setMaxYear] = useState(2023); 
+
   let minYear = 1979;
   let maxYear = 2023;
 
@@ -91,7 +89,7 @@ const AllView = () => {
   switch (selectGenre) {
     case "Action":
       if (selectPublisher == "EA Sports") {
-        minYear = 1999;
+        minYear = 2000;
         maxYear = 2000;
       } else {
         minYear = 1995;
@@ -102,7 +100,7 @@ const AllView = () => {
       minYear = 1990;
       break;
     case "Racing":
-      if (selectPublisher == "Eidos Interactive") {
+      if (selectPublisher == "Eidos Interactive" || selectPublisher == "EA Sports") {
         minYear = 2000;
         maxYear = 2000;
       } else {
@@ -366,7 +364,7 @@ const AllView = () => {
     minYear = 2013;
     maxYear = 2015;
   } 
- 
+
   return (
     <Container>
       <Row>
